@@ -247,10 +247,11 @@ public class Tablero extends JPanel {
         boolean ganador = false;
         int empezar = 0;
         int contador = 0;
+
         for ( // Recorre los inicios de cada diagonal en los bordes de la matriz.
-                Integer diagonal = -6; // Comienza con un número negativo.
-                diagonal <= 0; // Mientras no llegue a la última diagonal.
-                diagonal++ // Avanza hasta el comienzo de la siguiente diagonal.
+                Integer diagonal = 1 - ficha.length; // Comienza con un número negativo.
+                diagonal <= ficha.length - 1; // Mientras no llegue a la última diagonal.
+                diagonal += 1 // Avanza hasta el comienzo de la siguiente diagonal.
                 ) {
             for ( // Recorre cada una de las diagonales a partir del extremo superior izquierdo.
                     Integer vertical = Math.max(0, diagonal), horizontal = -Math.min(0, diagonal);
@@ -261,54 +262,54 @@ public class Tablero extends JPanel {
                 //System.out.println(vertical +" "+ horizontal);
                 if (empezar == 3 || empezar == 9) {
                     System.out.println(vertical + " " + horizontal);
-                    if (ficha[horizontal][vertical].getTurno() == jugador) {
+                    if (ficha[-vertical + 6][horizontal].getTurno() == jugador) {
                         contador++;
                         if (contador == 4) {
                             vertical = 6;
                             horizontal = 0;
                             ganador = true;
                         }
-                    } else if (ficha[horizontal][vertical].getTurno() == perdedor) {
+                    } else if (ficha[-vertical + 6][horizontal].getTurno() == perdedor) {
                         contador = 0;
 
                     }
                 } else if (empezar == 4 || empezar == 8) {
                     System.out.println(vertical + " " + horizontal);
-                    if (ficha[vertical][horizontal].getTurno() == jugador) {
+                    if (ficha[-vertical + 6][horizontal].getTurno() == jugador) {
                         contador++;
                         if (contador == 4) {
                             vertical = 6;
                             horizontal = 0;
                             ganador = true;
                         }
-                    } else if (ficha[vertical][horizontal].getTurno() == perdedor) {
+                    } else if (ficha[-vertical + 6][horizontal].getTurno() == perdedor) {
                         contador = 0;
 
                     }
 
                 } else if (empezar == 5 || empezar == 7) {
                     System.out.println(vertical + " " + horizontal);
-                    if (ficha[horizontal][vertical].getTurno() == jugador) {
+                    if (ficha[-vertical + 6][horizontal].getTurno() == jugador) {
                         contador++;
                         if (contador == 4) {
                             vertical = 6;
                             horizontal = 0;
                             ganador = true;
                         }
-                    } else if (ficha[horizontal][vertical].getTurno() == perdedor) {
+                    } else if (ficha[-vertical + 6][horizontal].getTurno() == perdedor) {
                         contador = 0;
 
                     }
                 } else if (empezar == 6) {
                     System.out.println(vertical + " " + horizontal);
-                    if (ficha[horizontal][vertical].getTurno() == jugador) {
+                    if (ficha[-vertical + 6][horizontal].getTurno() == jugador) {
                         contador++;
                         if (contador == 4) {
                             vertical = 6;
                             horizontal = 0;
                             ganador = true;
                         }
-                    } else if (ficha[horizontal][vertical].getTurno() == perdedor) {
+                    } else if (ficha[-vertical + 6][horizontal].getTurno() == perdedor) {
                         contador = 0;
 
                     }
@@ -321,7 +322,8 @@ public class Tablero extends JPanel {
 
         return ganador;
 
-    }
+    
+        }
 
     public boolean empate() {
         boolean empate = false;

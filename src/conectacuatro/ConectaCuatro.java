@@ -92,7 +92,9 @@ public class ConectaCuatro extends JFrame {
                 JOptionPane.showMessageDialog(null, "Ganan los rojos en filas");
             } else if (resultado3) {
                 JOptionPane.showMessageDialog(null, "Ganan los rojos en diagonal");
-            } else if (empate) {
+            } else if (resultado4) {
+                JOptionPane.showMessageDialog(null, "Ganan los rojos en diagonal");
+            }  else if (empate) {
                 JOptionPane.showMessageDialog(null, "Empate, vamos a reiniciar el juego");
                 tablero.reiniciar();
                 tablero.repaint();
@@ -113,12 +115,15 @@ public class ConectaCuatro extends JFrame {
             boolean resultado = tablero.columnas(Ficha.Turno.JUGADOR2, Ficha.Turno.JUGADOR1, ejeX, ejeY);
             boolean resultado2 = tablero.filas(Ficha.Turno.JUGADOR2, Ficha.Turno.JUGADOR1, ejeX, ejeY);
             boolean resultado3 = tablero.diagonales(Ficha.Turno.JUGADOR2, Ficha.Turno.JUGADOR1, ejeX, ejeY);
+            boolean resultado4 = tablero.diagonalesInversas(Ficha.Turno.JUGADOR2, Ficha.Turno.JUGADOR1, ejeX, ejeY);
 
             if (resultado) {
                 JOptionPane.showMessageDialog(null, "Gana los verdes en columnas");
             } else if (resultado2) {
                 JOptionPane.showMessageDialog(null, "Gana los verdes en filas");
             } else if (resultado3) {
+                JOptionPane.showMessageDialog(null, "Gana los verdes en diagonales");
+            } else if (resultado4) {
                 JOptionPane.showMessageDialog(null, "Gana los verdes en diagonales");
             } else if (empate) {
                 JOptionPane.showMessageDialog(null, "Empate, vamos a reiniciar el juego");
